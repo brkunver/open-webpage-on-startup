@@ -1,11 +1,11 @@
 //import { createSignal } from "solid-js"
+import { i18n } from "#i18n"
 
-function App() {
+export default function App() {
+  const t = i18n.t
   return (
     <>
-      <h1>WXT + Solid</h1>
+      <h1>{t("extensionName")}</h1>
     </>
   )
 }
-
-export default App
