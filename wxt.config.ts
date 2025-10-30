@@ -7,6 +7,7 @@ export default defineConfig({
   manifest: {
     default_locale: "en",
     name: "__MSG_extensionName__",
+    permissions: ["storage"],
   },
   vite: () => ({
     plugins: [tailwindcss()],
