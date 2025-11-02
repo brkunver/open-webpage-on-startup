@@ -1,10 +1,12 @@
 import { storage } from "#imports"
 
-type Webpage = {
+export type Webpage = {
   name: string
   url: string
-  repeat: "everyday" | "never" | "daily"
-  lastOpened: Date
+  logo?: string
+  repeat: "everytime" | "daily_once" | "passive"
+  dailyRange?: { before: string; after: string }
+  lastOpened: string
 }
 
 export const webpageStorage = storage.defineItem<Webpage[]>("local:webpages", {
