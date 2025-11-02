@@ -5,7 +5,7 @@ const fs = require("fs")
 const path = require("path")
 
 const INPUT = "input.png"
-const SIZES = [16, 32, 48, 128]
+const SIZES = [16, 32, 48, 96, 128]
 const OUTPUT_DIR = "resized"
 
 function ensureDir(dir) {
@@ -53,7 +53,7 @@ function main() {
   ensureDir(OUTPUT_DIR)
   Promise.all(SIZES.map(size => resizeImage(size)))
     .then(() => {
-      console.log("Done! Outputs in resized/: output_16.png, output_32.png, output_48.png, output_128.png")
+      console.log("Done!")
     })
     .catch(error => {
       console.error(error.message)
