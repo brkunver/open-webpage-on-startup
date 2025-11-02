@@ -37,7 +37,7 @@ function runFFmpeg(args) {
 
 function resizeImage(size) {
   return new Promise((resolve, reject) => {
-    const outputPath = path.join(OUTPUT_DIR, `output_${size}.png`)
+    const outputPath = path.join(OUTPUT_DIR, `${size}.png`)
     const args = ["-i", INPUT, "-vf", `scale=${size}:${size}`, outputPath, "-y"]
 
     runFFmpeg(args)
