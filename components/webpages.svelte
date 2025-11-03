@@ -5,7 +5,6 @@
   import Entry from "./entry.svelte"
 
   let webpages: Webpage[] = []
-
   webpageStorage.watch(value => {
     webpages = value
   })
