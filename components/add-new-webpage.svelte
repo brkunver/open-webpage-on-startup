@@ -2,13 +2,16 @@
   import { i18n } from "#i18n"
   import { webpageStorage } from "@/utils/storage"
 
+  let url = $state("")
+  let name = $state("")
+
   const t = i18n.t
 
   async function addNewWebpage() {
     console.log("addNewWebpage")
     let newPage: Webpage = {
-      name: "Test",
-      url: "https://google.com",
+      name: name,
+      url: url,
       repeat: "everytime",
       lastOpened: new Date().toISOString(),
     }
@@ -20,10 +23,10 @@
 </script>
 
 <div class="flex flex-col gap-1 p-1 m-1">
-  <h1 class="text-xl font-bold">Add New Webpage</h1>
-  <input type="text" placeholder="Name" />
-  <input type="text" placeholder="URL" />
-  <button class="cursor-pointer bg-blue-800 text-white p-2 rounded w-fit" on:click={addNewWebpage}>
-    Add
+  <h1 class="text-xl font-bold">{t("addNewWebpage")}</h1>
+  <input type="text" placeholder="Name" bind:value={name} />
+  <input type="text" placeholder="URL" bind:value={url} />
+  <button class="cursor-pointer bg-blue-800 text-white p-2 rounded w-fit" onclick={addNewWebpage}>
+    {t("addNewWebpage")}
   </button>
 </div>
