@@ -7,10 +7,7 @@
 
   const repeatStates: Webpage["repeat"][] = ["everytime", "daily_once", "passive"]
 
-  const repeatStyles: Record<
-    Webpage["repeat"],
-    { label: string; color: string; hoverColor: string; icon: string }
-  > = {
+  const repeatStyles: Record<Webpage["repeat"], { label: string; color: string; hoverColor: string; icon: string }> = {
     everytime: {
       label: "Every Time",
       color: "bg-green-100 text-green-800",
