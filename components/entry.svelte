@@ -2,26 +2,29 @@
   import type { Webpage } from "@/utils/storage"
   import { webpageStorage } from "@/utils/storage"
   import { fade } from "svelte/transition"
+  import { i18n } from "#i18n"
 
   export let webpage: Webpage
+
+  const t = i18n.t
 
   const repeatStates: Webpage["repeat"][] = ["everytime", "daily_once", "passive"]
 
   const repeatStyles: Record<Webpage["repeat"], { label: string; color: string; hoverColor: string; icon: string }> = {
     everytime: {
-      label: "Every Time",
+      label: t("repeatModeEverytime"),
       color: "bg-green-100 text-green-800",
       hoverColor: "hover:bg-green-200",
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`, // Clock icon
     },
     daily_once: {
-      label: "Once a Day",
+      label: t("repeatModeDailyOnce"),
       color: "bg-blue-100 text-blue-800",
       hoverColor: "hover:bg-blue-200",
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>`, // Sun icon
     },
     passive: {
-      label: "Passive",
+      label: t("repeatModePassive"),
       color: "bg-gray-100 text-gray-700",
       hoverColor: "hover:bg-gray-200",
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`, // Pause icon
@@ -49,7 +52,7 @@
 
   function formatLastOpened(timestamp: number | undefined): string {
     if (!timestamp || timestamp === 0) {
-      return "Never"
+      return t("never")
     }
     return new Date(timestamp).toLocaleString()
   }
@@ -81,7 +84,7 @@
       {webpage.url}
     </a>
     <p class="text-xs text-gray-500 mt-1">
-      Last opened: {formatLastOpened(webpage.lastOpened)}
+      {t("lastOpened")}: {formatLastOpened(webpage.lastOpened)}
     </p>
   </div>
 
@@ -91,7 +94,7 @@
         webpage.repeat
       ].color} {repeatStyles[webpage.repeat].hoverColor}"
       onclick={cycleRepeatStatus}
-      title="Click to change repeat mode"
+      title={t("changeRepeatMode")}
     >
       {@html repeatStyles[webpage.repeat].icon}
       <span>{repeatStyles[webpage.repeat].label}</span>
@@ -100,7 +103,7 @@
     <button
       class="p-2 rounded-full text-gray-400 hover:bg-red-100 hover:text-red-600 transition-colors cursor-pointer"
       onclick={deleteWebpage}
-      title="Delete webpage"
+      title={t("deleteWebpage")}
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
