@@ -96,59 +96,135 @@
     </div>
   </div>
 
-  <div class="mb-4 p-4 border border-gray-200 rounded-lg bg-gray-50">
-    <div class="flex items-center mb-3">
-      <input
-        id="enable-daily-range"
-        type="checkbox"
-        class="w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
-        bind:checked={enableDailyRange}
-      />
-      <label for="enable-daily-range" class="ml-2 block text-sm font-medium text-gray-700 cursor-pointer">
-        Enable daily time range
+  <div
+    class="mb-6 p-5 bg-white border border-gray-200 rounded-xl shadow-sm transition-all duration-200 hover:shadow-md w-full"
+  >
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center">
+        <div class="w-8 h-5 flex items-center justify-center mr-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+        <label for="enable-daily-range" class="block text-sm font-medium text-gray-700 cursor-pointer">
+          Daily Time Range
+        </label>
+      </div>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input id="enable-daily-range" type="checkbox" class="sr-only peer" bind:checked={enableDailyRange} />
+        <div
+          class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"
+        ></div>
       </label>
     </div>
 
-    {#if enableDailyRange}
-      <div class="grid grid-cols-2 gap-4 mt-2">
-        <div>
-          <label for="start-time" class="block text-sm font-medium text-gray-700 mb-1">Start Time</label>
-          <div class="relative">
-            <input
-              id="start-time"
-              type="range"
-              min="0"
-              max="23"
-              bind:value={dailyRange.start}
-              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:hover:bg-blue-600 [&::-webkit-slider-thumb]:focus:ring-2 [&::-webkit-slider-thumb]:focus:ring-blue-500 [&::-webkit-slider-thumb]:focus:ring-offset-2"
-            />
+    <div class="space-y-4" class:opacity-50={!enableDailyRange} class:pointer-events-none={!enableDailyRange}>
+      <div class={!enableDailyRange ? "opacity-50 pointer-events-none" : ""}>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label for="start-time" class="block text-sm font-medium text-gray-700"> Start Time </label>
+              <div
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+              >
+                {formatHour(dailyRange.start)}
+              </div>
+            </div>
+            <div class="relative">
+              <input
+                id="start-time"
+                type="range"
+                min="0"
+                max="23"
+                bind:value={dailyRange.start}
+                oninput={e => {
+                  const target = e.target as HTMLInputElement
+                  dailyRange.start = parseInt(target.value)
+                }}
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-blue-600 [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:bg-blue-50 [&::-webkit-slider-thumb]:active:bg-blue-100 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:duration-200"
+              />
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                {#each Array(5).fill(0) as _, i}
+                  <span>{i * 6}:00</span>
+                {/each}
+              </div>
+            </div>
           </div>
-          <div class="mt-1 text-center font-mono text-sm bg-gray-100 py-1 rounded">
-            {formatHour(dailyRange.start)}
+
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label for="end-time" class="block text-sm font-medium text-gray-700"> End Time </label>
+              <div
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+              >
+                {formatHour(dailyRange.end)}
+              </div>
+            </div>
+            <div class="relative">
+              <input
+                id="end-time"
+                type="range"
+                min="0"
+                max="23"
+                bind:value={dailyRange.end}
+                oninput={e => {
+                  const target = e.target as HTMLInputElement
+                  dailyRange.end = parseInt(target.value)
+                }}
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-blue-600 [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:bg-blue-50 [&::-webkit-slider-thumb]:active:bg-blue-100 [&::-webkit-slider-thumb]:transition-all [&::-webkit-slider-thumb]:duration-200"
+              />
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                {#each Array(5).fill(0) as _, i}
+                  <span>{i * 6}:00</span>
+                {/each}
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <label for="end-time" class="block text-sm font-medium text-gray-700 mb-1">End Time</label>
-          <div class="relative">
-            <input
-              id="end-time"
-              type="range"
-              min="0"
-              max="23"
-              bind:value={dailyRange.end}
-              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:hover:bg-blue-600 [&::-webkit-slider-thumb]:focus:ring-2 [&::-webkit-slider-thumb]:focus:ring-blue-500 [&::-webkit-slider-thumb]:focus:ring-offset-2"
+
+        <div
+          class={`mt-4 p-3 border rounded-lg flex items-start transition-colors duration-200
+            ${enableDailyRange ? "opacity-100 bg-blue-50/70 border-blue-100" : "opacity-50 bg-gray-50 border-gray-200"}
+          `}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-2 mt-0.5 shrink-0 {enableDailyRange ? 'text-blue-500' : 'text-gray-500'}"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+              clip-rule="evenodd"
             />
-          </div>
-          <div class="mt-1 text-center font-mono text-sm bg-gray-100 py-1 rounded">
-            {formatHour(dailyRange.end)}
+          </svg>
+          <div>
+            <p class={`text-sm font-medium ${enableDailyRange ? "text-gray-800" : "text-gray-600"}`}>
+              {enableDailyRange ? "Page Availability" : "Enable Daily Time Range to set availability"}
+            </p>
+            {#if enableDailyRange}
+              <p class="text-sm text-gray-600">
+                The page will be available between
+                <span class="font-semibold text-blue-700">{formatHour(dailyRange.start)}</span> and
+                <span class="font-semibold text-blue-700">{formatHour(dailyRange.end)}</span>
+              </p>
+            {/if}
           </div>
         </div>
       </div>
-      <div class="mt-3 text-sm text-gray-600 bg-blue-50 p-2 rounded-md">
-        Page will only open between <span class="font-medium">{formatHour(dailyRange.start)}</span> and
-        <span class="font-medium">{formatHour(dailyRange.end)}</span>
-      </div>
-    {/if}
+    </div>
   </div>
 
   <button
