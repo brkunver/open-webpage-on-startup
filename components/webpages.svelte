@@ -14,7 +14,7 @@
   })
 </script>
 
-<div class="flex flex-col w-[700px] gap-2">
+<div class="flex flex-col w-full max-w-[700px] mx-auto gap-2">
   <h2 class="text-2xl text-center font-bold">Saved Webpages</h2>
   {#each webpages as webpage}
     <Entry {webpage} />
