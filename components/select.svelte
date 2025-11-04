@@ -1,5 +1,7 @@
 <script lang="ts">
-  let { options = [], value = $bindable(), placeholder = "Select an option", class: className = "" } = $props()
+  import { i18n } from "#i18n"
+  const t = i18n.t
+  let { options = [], value = $bindable(), placeholder = t("selectPlaceholder"), class: className = "" } = $props()
 
   let isOpen = $state(false)
 
