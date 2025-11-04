@@ -1,4 +1,5 @@
 extensionName: "Open Webpage on Startup"
+extensionDescription: "Automatically open user-defined webpages when your browser starts."
 addNewWebpage: "Add New Webpage"
 optionsTitle: "Options"
 savedWebpagesTitle: "Saved Webpages"
