@@ -29,7 +29,7 @@
       name: name,
       url: url,
       repeat: selected.value as "everytime" | "daily_once" | "passive",
-      lastOpened: new Date().toISOString(),
+      lastOpened: 0,
     }
 
     const webpages = await webpageStorage.getValue()
