@@ -4,21 +4,23 @@
   import Select from "@/components/select.svelte"
   import { fade } from "svelte/transition"
 
-  let selected = $state({ label: "Everytime", value: "everytime" })
-  const options = [
+  const t = i18n.t
+
+  let selected = $state({ label: t("repeatModeEverytime"), value: "everytime" })
+  const options = $derived([
     {
-      label: "Everytime",
+      label: t("repeatModeEverytime"),
       value: "everytime",
     },
     {
-      label: "Daily Once",
+      label: t("repeatModeDailyOnce"),
       value: "daily_once",
     },
     {
-      label: "Passive",
+      label: t("repeatModePassive"),
       value: "passive",
     },
-  ]
+  ])
 
   // Form state
   let url = $state<string>("")
@@ -28,8 +30,6 @@
     start: 9, // Default start time: 09:00
     end: 17, // Default end time: 17:00
   })
-
-  const t = i18n.t
 
   // Format hour to HH:00 format
   function formatHour(hour: number): string {
@@ -69,18 +69,18 @@
   <h1 class="text-xl font-bold mb-2">{t("addNewWebpage")}</h1>
 
   <div class="mb-3">
-    <label for="website-name" class="block text-sm font-medium mb-1">Name</label>
+    <label for="website-name" class="block text-sm font-medium mb-1">{t("nameLabel")}</label>
     <input
       id="website-name"
       type="text"
-      placeholder="Website name"
+      placeholder={t("websiteNamePlaceholder")}
       bind:value={name}
       class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
     />
   </div>
 
   <div class="mb-3">
-    <label for="website-url" class="block text-sm font-medium mb-1">URL</label>
+    <label for="website-url" class="block text-sm font-medium mb-1">{t("urlLabel")}</label>
     <input
       id="website-url"
       type="url"
@@ -91,9 +91,9 @@
   </div>
 
   <div class="mb-3">
-    <label for="open-mode" class="block text-sm font-medium mb-1">Open Mode</label>
+    <label for="open-mode" class="block text-sm font-medium mb-1">{t("openModeLabel")}</label>
     <div id="open-mode">
-      <Select {options} bind:value={selected} placeholder="Select an option" />
+      <Select {options} bind:value={selected} placeholder={t("selectPlaceholder")} />
     </div>
   </div>
 
@@ -119,7 +119,7 @@
           </svg>
         </div>
         <label for="enable-daily-range" class="block text-sm font-medium text-gray-700 cursor-pointer">
-          Daily Time Range
+          {t("dailyTimeRangeLabel")}
         </label>
       </div>
       <label class="relative inline-flex items-center cursor-pointer">
@@ -135,7 +135,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-2">
             <div class="flex items-center justify-between">
-              <label for="start-time" class="block text-sm font-medium text-gray-700"> Start Time </label>
+              <label for="start-time" class="block text-sm font-medium text-gray-700">{t("startTimeLabel")} </label>
               <div
                 class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
               >
@@ -165,7 +165,7 @@
 
           <div class="space-y-2">
             <div class="flex items-center justify-between">
-              <label for="end-time" class="block text-sm font-medium text-gray-700"> End Time </label>
+              <label for="end-time" class="block text-sm font-medium text-gray-700"> {t("endTimeLabel")} </label>
               <div
                 class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
               >
@@ -210,10 +210,11 @@
             />
           </svg>
           <div>
-            <p class="text-sm font-medium text-gray-800">Page Availability</p>
+            <p class="text-sm font-medium text-gray-800">{t("pageAvailability")}</p>
             <p class="text-sm text-gray-600">
-              The page will be available between
-              <span class="font-semibold text-blue-700">{formatHour(dailyRange.start)}</span> and
+              {t("pageWillBeAvailableBetween")}
+              <span class="font-semibold text-blue-700">{formatHour(dailyRange.start)}</span>
+              {t("and")}
               <span class="font-semibold text-blue-700">{formatHour(dailyRange.end)}</span>
             </p>
           </div>
