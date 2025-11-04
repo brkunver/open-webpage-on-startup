@@ -39,6 +39,10 @@
   // Add new webpage to storage
   async function addNewWebpage() {
     console.log("addNewWebpage")
+    const lowerCaseUrl = url.toLowerCase()
+    if (!lowerCaseUrl.startsWith("http://") && !lowerCaseUrl.startsWith("https://")) {
+      url = "https://" + url
+    }
     let newPage: Webpage = {
       name: name,
       url: url,
