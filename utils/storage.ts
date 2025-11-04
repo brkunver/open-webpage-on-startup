@@ -11,6 +11,12 @@ export type Webpage = {
 
 export const webpageStorage = storage.defineItem<Webpage[]>("local:webpages", {
   fallback: [],
+  version: 1,
+  migrations: {
+    1: oldValue => {
+      return oldValue
+    },
+  },
 })
 
 export function checkCondition(site: Webpage, now: Date): boolean {
