@@ -6,7 +6,7 @@
   const t = i18n.t
 </script>
 
-<div class="flex flex-col w-full">
+<div class="flex flex-col justify-center items-center p-4 w-full">
   <h1 class="text-2xl text-center font-bold">{t("extensionName")}</h1>
   <AddNewWebpage />
   <Webpages />
