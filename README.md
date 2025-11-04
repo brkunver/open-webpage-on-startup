@@ -1,3 +1,7 @@
-# Open 
+# Open Webpages on Startup | Browser Extension
 
-This template should help get you started developing with SolidJS in WXT.
+Open Webpages on Startup is a browser extension that opens your favorite webpages on startup.
+You can set frequency of opening webpages, daily range, and more.
+
+Chrome Store Url : "will be added soon"
+Firefox Store Url : "will be added soon"
