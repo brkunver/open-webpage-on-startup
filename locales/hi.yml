@@ -1,4 +1,5 @@
 extensionName: "स्टार्टअप पर वेबपेज खोलें"
+extensionDescription: "आपके ब्राउज़र के शुरू होने पर स्वचालित रूप से उपयोगकर्ता-परिभाषित वेबपेज खोलता है।"
 addNewWebpage: "नया वेबपेज जोड़ें"
 optionsTitle: "विकल्प"
 savedWebpagesTitle: "सहेजे गए वेबपेज"

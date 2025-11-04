@@ -1,4 +1,5 @@
 extensionName: "Abrir página da web na inicialização"
+extensionDescription: "Abre automaticamente páginas da web definidas pelo utilizador quando o navegador é iniciado."
 addNewWebpage: "Adicionar nova página da web"
 optionsTitle: "Opções"
 savedWebpagesTitle: "Páginas da web salvas"

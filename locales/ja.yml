@@ -1,4 +1,5 @@
 extensionName: "起動時にウェブページを開く"
+extensionDescription: "ブラウザの起動時に、ユーザーが定義したウェブページを自動的に開きます。"
 addNewWebpage: "新しいウェブページを追加"
 optionsTitle: "オプション"
 savedWebpagesTitle: "保存されたウェブページ"

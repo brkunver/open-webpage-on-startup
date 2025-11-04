@@ -1,4 +1,5 @@
 extensionName: "Ouvrir la page Web au démarrage"
+extensionDescription: "Ouvre automatiquement les pages Web définies par l'utilisateur au démarrage de votre navigateur."
 addNewWebpage: "Ajouter une nouvelle page Web"
 optionsTitle: "Options"
 savedWebpagesTitle: "Pages Web enregistrées"

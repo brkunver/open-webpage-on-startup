@@ -1,5 +1,6 @@
-extensionName: "เปิดเว็บเพจเมื่อเริ่มต้น"
-addNewWebpage: "เพิ่มเว็บเพจใหม่"
+extensionName: "เปิดหน้าเว็บเมื่อเริ่มต้น"
+extensionDescription: "เปิดหน้าเว็บที่ผู้ใช้กำหนดโดยอัตโนมัติเมื่อเริ่มเบราว์เซอร์"
+addNewWebpage: "เพิ่มหน้าเว็บใหม่"
 optionsTitle: "ตัวเลือก"
 savedWebpagesTitle: "เว็บเพจที่บันทึกไว้"
 selectPlaceholder: "เลือกตัวเลือก"

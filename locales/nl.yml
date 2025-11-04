@@ -1,4 +1,5 @@
 extensionName: "Webpagina openen bij opstarten"
+extensionDescription: "Opent automatisch door de gebruiker gedefinieerde webpagina's wanneer de browser wordt gestart."
 addNewWebpage: "Nieuwe webpagina toevoegen"
 optionsTitle: "Opties"
 savedWebpagesTitle: "Opgeslagen webpagina's"

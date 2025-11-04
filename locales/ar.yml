@@ -1,4 +1,5 @@
 extensionName: "فتح صفحة ويب عند بدء التشغيل"
+extensionDescription: "يفتح تلقائيًا صفحات الويب المحددة من قبل المستخدم عند بدء تشغيل المتصفح."
 addNewWebpage: "إضافة صفحة ويب جديدة"
 optionsTitle: "خيارات"
 savedWebpagesTitle: "صفحات الويب المحفوظة"

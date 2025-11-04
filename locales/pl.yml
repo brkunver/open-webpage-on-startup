@@ -1,4 +1,5 @@
 extensionName: "Otwórz stronę internetową przy uruchamianiu"
+extensionDescription: "Automatycznie otwiera strony internetowe zdefiniowane przez użytkownika podczas uruchamiania przeglądarki."
 addNewWebpage: "Dodaj nową stronę internetową"
 optionsTitle: "Opcje"
 savedWebpagesTitle: "Zapisane strony internetowe"

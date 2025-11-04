@@ -1,5 +1,6 @@
 extensionName: "Άνοιγμα ιστοσελίδας κατά την εκκίνηση"
-addNewWebpage: "Προσθήκη νέας ιστοσελidas"
+extensionDescription: "Ανοίγει αυτόματα τις ιστοσελίδες που ορίζει ο χρήστης κατά την εκκίνηση του προγράμματος περιήγησης."
+addNewWebpage: "Προσθήκη νέας ιστοσελίδας"
 optionsTitle: "Επιλογές"
 savedWebpagesTitle: "Αποθηκευμένες ιστοσελίδες"
 selectPlaceholder: "Επιλέξτε μια επιλογή"

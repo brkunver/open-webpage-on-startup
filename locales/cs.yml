@@ -1,4 +1,5 @@
 extensionName: "Otevřít webovou stránku při spuštění"
+extensionDescription: "Automaticky otevírá uživatelem definované webové stránky při spuštění prohlížeče."
 addNewWebpage: "Přidat novou webovou stránku"
 optionsTitle: "Možnosti"
 savedWebpagesTitle: "Uložené webové stránky"

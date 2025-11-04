@@ -1,4 +1,5 @@
 extensionName: "Öppna webbsida vid start"
+extensionDescription: "Öppnar automatiskt användardefinierade webbsidor när webbläsaren startas."
 addNewWebpage: "Lägg till ny webbsida"
 optionsTitle: "Alternativ"
 savedWebpagesTitle: "Sparade webbsidor"

@@ -1,4 +1,5 @@
 extensionName: "Mở trang web khi khởi động"
+extensionDescription: "Tự động mở các trang web do người dùng xác định khi trình duyệt khởi động."
 addNewWebpage: "Thêm trang web mới"
 optionsTitle: "Tùy chọn"
 savedWebpagesTitle: "Các trang web đã lưu"

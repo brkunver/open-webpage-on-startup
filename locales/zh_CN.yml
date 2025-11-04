@@ -1,4 +1,5 @@
 extensionName: "启动时打开网页"
+extensionDescription: "浏览器启动时自动打开用户定义的网页。"
 addNewWebpage: "添加新网页"
 optionsTitle: "选项"
 savedWebpagesTitle: "已保存的网页"

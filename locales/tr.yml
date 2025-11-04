@@ -1,4 +1,5 @@
 extensionName: "Başlangıçta Web Sayfası Aç"
+extensionDescription: "Tarayıcınız başladığında kullanıcı tanımlı web sayfalarını otomatik olarak açar."
 addNewWebpage: "Yeni Web Sayfası Ekle"
 optionsTitle: "Seçenekler"
 savedWebpagesTitle: "Kayıtlı Web Sayfaları"
