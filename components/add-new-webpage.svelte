@@ -2,6 +2,7 @@
   import { i18n } from "#i18n"
   import { webpageStorage } from "@/utils/storage"
   import Select from "@/components/select.svelte"
+  import { fade } from "svelte/transition"
 
   let selected = $state({ label: "Everytime", value: "everytime" })
   const options = [
@@ -129,8 +130,8 @@
       </label>
     </div>
 
-    <div class="space-y-4" class:opacity-50={!enableDailyRange} class:pointer-events-none={!enableDailyRange}>
-      <div class={!enableDailyRange ? "opacity-50 pointer-events-none" : ""}>
+    {#if enableDailyRange}
+      <div class="space-y-4" transition:fade={{ duration: 200 }}>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-2">
             <div class="flex items-center justify-between">
@@ -194,13 +195,11 @@
         </div>
 
         <div
-          class={`mt-4 p-3 border rounded-lg flex items-start transition-colors duration-200
-            ${enableDailyRange ? "opacity-100 bg-blue-50/70 border-blue-100" : "opacity-50 bg-gray-50 border-gray-200"}
-          `}
+          class="p-3 border rounded-lg flex items-start transition-colors duration-200 bg-blue-50/70 border-blue-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 mr-2 mt-0.5 shrink-0 {enableDailyRange ? 'text-blue-500' : 'text-gray-500'}"
+            class="h-5 w-5 mr-2 mt-0.5 shrink-0 text-blue-500"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -211,20 +210,16 @@
             />
           </svg>
           <div>
-            <p class={`text-sm font-medium ${enableDailyRange ? "text-gray-800" : "text-gray-600"}`}>
-              {enableDailyRange ? "Page Availability" : "Enable Daily Time Range to set availability"}
+            <p class="text-sm font-medium text-gray-800">Page Availability</p>
+            <p class="text-sm text-gray-600">
+              The page will be available between
+              <span class="font-semibold text-blue-700">{formatHour(dailyRange.start)}</span> and
+              <span class="font-semibold text-blue-700">{formatHour(dailyRange.end)}</span>
             </p>
-            {#if enableDailyRange}
-              <p class="text-sm text-gray-600">
-                The page will be available between
-                <span class="font-semibold text-blue-700">{formatHour(dailyRange.start)}</span> and
-                <span class="font-semibold text-blue-700">{formatHour(dailyRange.end)}</span>
-              </p>
-            {/if}
           </div>
         </div>
       </div>
-    </div>
+    {/if}
   </div>
 
   <button
