@@ -16,18 +16,18 @@
     "manager": "bun manager.cjs bun"
   },
   "dependencies": {
-    "@wxt-dev/i18n": "^0.2.4"
+    "@wxt-dev/i18n": "^0.2.5"
   },
   "devDependencies": {
-    "@tsconfig/svelte": "^5.0.5",
-    "@tailwindcss/vite": "^4.1.12",
-    "tailwindcss": "^4.1.12",
-    "@wxt-dev/module-svelte": "^2.0.3",
-    "svelte": "^5.38.6",
-    "svelte-check": "^4.3.1",
+    "@tsconfig/svelte": "^5.0.8",
+    "@tailwindcss/vite": "^4.3.0",
+    "tailwindcss": "^4.3.0",
+    "@wxt-dev/module-svelte": "^2.0.5",
+    "svelte": "^5.55.7",
+    "svelte-check": "^4.4.8",
     "tslib": "^2.8.1",
-    "typescript": "^5.9.2",
-    "wxt": "^0.20.6"
+    "typescript": "^5.9.3",
+    "wxt": "^0.20.26"
   },
   "trustedDependencies": [
     "@tailwindcss/oxide",
