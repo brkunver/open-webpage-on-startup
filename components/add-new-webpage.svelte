@@ -36,16 +36,20 @@
     return hour.toString().padStart(2, "0") + ":00"
   }
 
+  function normalizeUrl(value: string): string {
+    const trimmedUrl = value.trim()
+    const hasProtocol = /^[a-z][a-z0-9+.-]*:/i.test(trimmedUrl)
+
+    return hasProtocol ? trimmedUrl : `https://${trimmedUrl}`
+  }
+
   // Add new webpage to storage
   async function addNewWebpage() {
     console.log("addNewWebpage")
-    const lowerCaseUrl = url.toLowerCase()
-    if (!lowerCaseUrl.startsWith("http://") && !lowerCaseUrl.startsWith("https://")) {
-      url = "https://" + url
-    }
+    const normalizedUrl = normalizeUrl(url)
     let newPage: Webpage = {
       name: name,
-      url: url,
+      url: normalizedUrl,
       repeat: selected.value as "everytime" | "daily_once" | "passive",
       lastOpened: 0,
     }
