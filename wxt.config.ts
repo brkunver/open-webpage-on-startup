@@ -9,6 +9,13 @@ export default defineConfig({
     name: "__MSG_extensionName__",
     description: "__MSG_extensionDescription__",
     permissions: ["storage", "tabs"],
+    browser_specific_settings: {
+      gecko: {
+        data_collection_permissions: {
+          required: ["none"],
+        },
+      },
+    },
   },
   vite: () => ({
     plugins: [tailwindcss()],
