@@ -11,12 +11,13 @@
     "build:firefox": "wxt build -b firefox",
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
+    "zip:all": "bun run --parallel zip zip:firefox",
     "compile": "tsc --noEmit",
     "postinstall": "wxt prepare",
     "manager": "bun manager.cjs bun"
   },
   "dependencies": {
-    "@wxt-dev/i18n": "^0.2.5"
+    "@wxt-dev/i18n": "^0.2.7"
   },
   "devDependencies": {
     "@tsconfig/svelte": "^5.0.8",
@@ -27,7 +28,8 @@
     "svelte-check": "^4.4.8",
     "tslib": "^2.8.1",
     "typescript": "^5.9.3",
-    "wxt": "^0.20.26"
+    "vite": "^7.1.12",
+    "wxt": "^0.21.3"
   },
   "trustedDependencies": [
     "@tailwindcss/oxide",
