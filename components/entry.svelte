@@ -62,7 +62,7 @@
   class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-4 flex items-center gap-4"
   transition:fade
 >
-  <div class="flex-shrink-0">
+  <div class="shrink-0">
     {#if webpage.logo}
       <img src={webpage.logo} alt="{webpage.name} logo" class="w-10 h-10 rounded-full object-cover" />
     {:else}
@@ -72,7 +72,7 @@
     {/if}
   </div>
 
-  <div class="flex-grow overflow-hidden">
+  <div class="grow overflow-hidden">
     <p class="text-lg font-semibold text-gray-800 truncate" title={webpage.name}>{webpage.name}</p>
     <a
       href={webpage.url}
@@ -88,7 +88,7 @@
     </p>
   </div>
 
-  <div class="flex-shrink-0 flex items-center gap-2">
+  <div class="shrink-0 flex items-center gap-2">
     <button
       class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer {repeatStyles[
         webpage.repeat
