@@ -1,53 +1,14 @@
 import { storage } from "#imports"
+import { migrateToV2, type Webpage } from "./webpage"
 
-export type Webpage = {
-  name: string
-  url: string
-  logo?: string
-  repeat: "everytime" | "daily_once" | "passive"
-  dailyRange?: { before: number; after: number }
-  lastOpened?: number
-}
+// The model itself is browser-agnostic and lives in ./webpage so it stays testable
+export * from "./webpage"
 
 export const webpageStorage = storage.defineItem<Webpage[]>("local:webpages", {
   fallback: [],
-  version: 1,
+  version: 2,
   migrations: {
-    1: oldValue => {
-      return oldValue
-    },
+    // Runs when migrating v1 -> v2: give every saved webpage a stable id.
+    2: migrateToV2,
   },
 })
-
-export function checkCondition(site: Webpage, now: Date): boolean {
-  const hour = now.getHours()
-
-  if (site.dailyRange) {
-    if (site.dailyRange.before <= site.dailyRange.after) {
-      if (hour < site.dailyRange.before || hour >= site.dailyRange.after) {
-        return false
-      }
-    } else {
-      if (hour < site.dailyRange.before && hour >= site.dailyRange.after) {
-        return false
-      }
-    }
-  }
-
-  const last = site.lastOpened || 0
-  const lastDate = new Date(last)
-
-  switch (site.repeat) {
-    case "daily_once":
-      return lastDate.toDateString() !== now.toDateString()
-
-    case "passive":
-      return false
-
-    case "everytime":
-      return true
-
-    default:
-      return false
-  }
-}
