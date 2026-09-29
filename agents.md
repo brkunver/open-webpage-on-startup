@@ -1,4 +1,4 @@
-# AIRules
+# AI Rules
 
 - Project type: Browser Extension
 - Supported browsers: Firefox, Chromium
@@ -15,21 +15,3 @@
 - wxt/storage
 - wxt/i18n
 - Bun
-
-## Configuration
-
-- Extension manifest is defined in `wxt.config.ts`
-- Locales are stored in `src/locales`
-- Code style is defined in `.prettierrc.json`
-
-## i18n Usage Example
-
-```tsx
-import { i18n } from "#i18n"
-
-const t = i18n.t
-
-<div>
-  <h1>{t("extensionName")}</h1>
-</div>
-```
