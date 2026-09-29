@@ -10,7 +10,7 @@
 - WXT Framework
 - TypeScript
 - Tailwind CSS v4
-- Svelte 5 (runes mode)
+- SolidJS (`.tsx` components, no virtual DOM)
 - Vite
 - wxt/storage
 - wxt/i18n
@@ -20,9 +20,19 @@
 
 - `bun run dev` / `bun run dev:firefox` - dev server (`webExt.disabled` is on, load `.output/*` manually)
 - `bun run build` / `bun run build:firefox` - production build
-- `bun run compile` - `tsc --noEmit`
-- `bun run check` - `svelte-check`, **tsc does not look at `.svelte` files, always run this too**
+- `bun run compile` - `tsc --noEmit`, this also type checks the `.tsx` components
+- `bun run verify` - `compile` plus the unit tests
 - `bun test` - unit tests for the pure helpers in `utils/`
+
+## UI (SolidJS)
+
+Components execute once and never re-render, so only reactive expressions update:
+
+- Read props as `props.x`; never destructure them, use `splitProps`/`mergeProps` when needed.
+- Local state is `createSignal`, derived state is `createMemo` (not an effect plus a setter).
+- Lists use `<For>`, conditionals `<Show>`/`<Switch>`; a simple ternary is fine inline.
+- Clean up subscriptions with `onCleanup()`.
+- Shared styling primitives (`card`, `input`, `label`, `btn-*`, `chip`, `badge`) live in `assets/tailwind.css`.
 
 ## Data model
 

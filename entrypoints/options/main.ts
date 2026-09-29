@@ -1,13 +1,9 @@
 import "~/assets/tailwind.css"
-import App from "./App.svelte"
+import { render } from "solid-js/web"
 import { i18n } from "#i18n"
-import { mount } from "svelte"
+import App from "./App"
 
 // set title
 document.title = i18n.t("optionsTitle")
 
-const app = mount(App, {
-  target: document.getElementById("root")!,
-})
-
-export default app
+render(App, document.getElementById("root")!)

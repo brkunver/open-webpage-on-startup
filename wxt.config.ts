@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite"
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
-  modules: ["@wxt-dev/module-svelte", "@wxt-dev/i18n/module"],
+  modules: ["@wxt-dev/module-solid", "@wxt-dev/i18n/module"],
   manifest: ({ browser }) => ({
     default_locale: "en",
     name: "__MSG_extensionName__",

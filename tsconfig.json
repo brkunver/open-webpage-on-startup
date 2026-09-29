@@ -1,7 +1,8 @@
 {
   "extends": "./.wxt/tsconfig.json",
   "compilerOptions": {
-    "useDefineForClassFields": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
     "types": ["bun-types"]
   }
 }

@@ -22,6 +22,6 @@ load the generated `.output/<browser>-mv*` directory manually.
 | `bun run build`       | Production build (Chromium)          |
 | `bun run build:firefox` | Production build (Firefox)         |
 | `bun run zip:all`     | Store-ready archives for both        |
-| `bun run compile`     | Type check `.ts` files (`tsc`)        |
-| `bun run check`       | Type check Svelte components          |
+| `bun run compile`     | Type check `.ts` and `.tsx` files (`tsc`) |
+| `bun run verify`      | Type check plus unit tests            |
 | `bun test`            | Unit tests for the pure helpers       |
