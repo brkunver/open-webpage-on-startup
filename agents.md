@@ -22,7 +22,7 @@
 - `bun run build` / `bun run build:firefox` - production build
 - `bun run compile` - `tsc --noEmit`, this also type checks the `.tsx` components
 - `bun run verify` - `compile` plus the unit tests
-- `bun test` - unit tests for the pure helpers in `utils/`
+- `bun test` - `bun:test`, no extra library; `test/extension.ts` boots the extension environment with the `fakeBrowser` that ships with WXT, so background tests run against the real storage layer
 
 ## UI (SolidJS)
 
