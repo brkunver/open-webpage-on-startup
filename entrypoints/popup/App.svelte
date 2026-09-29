@@ -10,7 +10,7 @@
   }
 </script>
 
-<main class="flex flex-col gap-4 bg-gray-50 p-4 w-[400px] min-h-[200px]">
+<main class="flex flex-col gap-4 bg-gray-50 p-4 w-100 min-h-50">
   <header>
     <h1 class="text-2xl font-bold text-center text-gray-800">{t("extensionName")}</h1>
   </header>
